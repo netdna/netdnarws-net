@@ -6,13 +6,18 @@ Make sure and obtain a proper account alias, consumer key, and consumer secret p
 
 ## Usage
 
-var api = new NetDNARWS.Api("account alais", "consumer key","consumer secret");
+`var api = new NetDNARWS.Api("account alais", "consumer key","consumer secret");`
 
-var accountResult = api.Get("/account.json")
+`var accountResult = api.Get("/account.json")`
 
 ## Methods
-It has support for GET requests only at the moment
+It has support for `GET` `DELETE` `PUT` & `POST` requests only at the moment
 
-Every request can take an optional debug parameter which will write all objects returned to the console
+Every request can take an optional debug parameter which will write all objects returned to the console.
 
-var accountResult = api.Get("/account.json", true)
+## GET
+`var accountResult = api.Get("/account.json", true)`
+
+## DELETE (Purge Cache)
+`api.Delete("/zones/pull.json/" + pullZone.id + "/cache?file=" + pathToFile)`
+
