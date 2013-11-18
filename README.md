@@ -21,3 +21,6 @@ Every request can take an optional debug parameter which will write all objects 
 ## DELETE (Purge Cache)
 `api.Delete("/zones/pull.json/" + pullZone.id + "/cache?file=" + pathToFile)`
 
+## Purge Files From Cache
+To purge individual files you would need to specify a zone and an array of file paths to be purged:
+`var purgeResult = api.PurgeFiles(77777, "/favicon.png", "/foo/bar.html");`
