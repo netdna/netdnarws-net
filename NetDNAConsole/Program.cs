@@ -35,6 +35,8 @@ namespace NetDNAConsole
             //    api.Delete("/zones/pull.json/" + pullZone.id + "/cache");
             //}                      
 
+            //var purgeResults = api.PurgeFiles(77777, "/favicon.png", "/foo/bar.html");
+
         }        
 
     }

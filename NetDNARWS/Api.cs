@@ -49,7 +49,7 @@ namespace NetDNARWS
             return ((HttpWebResponse) response).StatusCode == HttpStatusCode.OK;
         }
 
-        public FilePurgeResult[] PurgeFiles(int zone, string[] files)
+        public FilePurgeResult[] PurgeFiles(int zone, params string[] files)
         {
             var results = new List<FilePurgeResult>();
             foreach (var file in files)
