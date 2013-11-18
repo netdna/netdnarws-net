@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Net;
 using System.Web;
 using System.Net;
@@ -46,6 +48,19 @@ namespace NetDNARWS
             var response = GetWebResponse(url, "DELETE");
             return ((HttpWebResponse) response).StatusCode == HttpStatusCode.OK;
         }
+
+        public FilePurgeResult[] PurgeFiles(int zone, string[] files)
+        {
+            var results = new List<FilePurgeResult>();
+            foreach (var file in files)
+            {
+                var path = file.StartsWith("/") ? file : "/" + file;
+                var result = Delete("/zones/pull.json/" + zone + "/cache?file=" + Uri.EscapeDataString(file));
+                results.Add(new FilePurgeResult {FilePath = file, Purged = result});
+            }
+            return results.ToArray();
+        }
+
 
         private WebResponse GetWebResponse(string url, string method)
         {
