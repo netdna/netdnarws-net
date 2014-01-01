@@ -18,10 +18,10 @@ namespace NetDNARWS
 
         private const string _netDNABaseAddress = "https://rws.netdna.com";
 
-        public Api(string alias, string consumerKey, string consumerSecret, int requestTimeout = 30)
+        public Api(string companyAlias, string consumerKey, string consumerSecret, int requestTimeout = 30)
         {
             _consumerKey = consumerKey;
-            _alias = alias;
+            _alias = companyAlias;
             _consumerSecret = consumerSecret;
             _requestTimeout = requestTimeout;
         }
